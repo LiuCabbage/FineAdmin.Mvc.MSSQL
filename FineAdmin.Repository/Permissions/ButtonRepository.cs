@@ -21,7 +21,7 @@ namespace FineAdmin.Repository
         /// <returns></returns>
         public IEnumerable<ButtonModel> GetButtonListByRoleIdModuleId(int roleId, int moduleId, PositionEnum position)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 string sql = @"SELECT b.* FROM roleauthorize a
                             INNER JOIN button b ON a.ButtonId=b.Id
@@ -42,7 +42,7 @@ namespace FineAdmin.Repository
         /// <returns></returns>
         public IEnumerable<ButtonModel> GetButtonListByRoleIdModuleId(int roleId, int moduleId, out IEnumerable<ButtonModel> selectList)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(@"SELECT Id,FullName FROM button a

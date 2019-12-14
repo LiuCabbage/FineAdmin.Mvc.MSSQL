@@ -13,7 +13,7 @@ namespace FineAdmin.Repository
     {
         public IEnumerable<OrganizeModel> GetOrganizeList()
         {
-            using (var conn=MySqlHelper.GetConnection())
+            using (var conn=SqlHelper.SqlConnection())
             {
                 string sql = @"SELECT a.Id,a.ParentId,a.EnCode,a.FullName,a.SortCode,b.ItemName as CategoryName,a.CreateTime FROM organize a
                                INNER JOIN itemsdetail b ON a.CategoryId=b.Id ORDER BY SortCode ASC";

@@ -127,8 +127,6 @@
     <Compile Include="App_Start\Handler\HandlerErrorAttribute.cs" />
     <Compile Include="App_Start\Handler\HandlerLoginAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Donation\Controllers\DonationController.cs" />
-    <Compile Include="Areas\Donation\DonationAreaRegistration.cs" />
     <Compile Include="Areas\Permissions\Controllers\ButtonController.cs" />
     <Compile Include="Areas\Permissions\Controllers\ItemsController.cs" />
     <Compile Include="Areas\Permissions\Controllers\ItemsDetailController.cs" />
@@ -2437,8 +2435,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Donation\Models\" />
-    <Folder Include="Areas\Donation\Views\Shared\" />
     <Folder Include="Areas\Permissions\Models\" />
     <Folder Include="Areas\Permissions\Views\RoleAuthorize\" />
     <Folder Include="Areas\Permissions\Views\Shared\" />
@@ -2480,10 +2476,6 @@
     <Content Include="Areas\Permissions\Views\ItemsDetail\Add.cshtml" />
     <Content Include="Areas\Permissions\Views\ItemsDetail\Edit.cshtml" />
     <Content Include="Areas\Permissions\Views\Role\Assign.cshtml" />
-    <Content Include="Areas\Donation\Views\web.config" />
-    <Content Include="Areas\Donation\Views\Donation\Index.cshtml" />
-    <Content Include="Areas\Donation\Views\Donation\Edit.cshtml" />
-    <Content Include="Areas\Donation\Views\Donation\Add.cshtml" />
     <Content Include="Areas\Permissions\Views\User\UserInfo.cshtml" />
     <Content Include="Areas\Permissions\Views\User\UserPwd.cshtml" />
     <Content Include="Content\css\okadmin.theme.scss" />

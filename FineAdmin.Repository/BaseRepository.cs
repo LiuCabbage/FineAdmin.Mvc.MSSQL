@@ -14,7 +14,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public T GetById(int Id)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.GetById<T>(Id);
             }
@@ -24,7 +24,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public int Insert(T model)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.Insert<T>(model);
             }
@@ -34,7 +34,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public int UpdateById(T model)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.UpdateById<T>(model);
             }
@@ -44,7 +44,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public int UpdateById(T model, string updateFields)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.UpdateById<T>(model, updateFields);
             }
@@ -54,7 +54,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public int DeleteById(int Id)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.DeleteById<T>(Id);
             }
@@ -64,7 +64,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public int DeleteByIds(object Ids)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.DeleteByIds<T>(Ids);
             }
@@ -74,7 +74,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public int DeleteByWhere(string where)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.DeleteByWhere<T>(where);
             }
@@ -85,7 +85,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public IEnumerable<T> GetByPage(SearchFilter filter, out long total)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.GetByPage<T>(filter.pageIndex, filter.pageSize, out total, filter.returnFields, filter.where, filter.param, filter.orderBy, filter.transaction, filter.commandTimeout);
             }
@@ -95,7 +95,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public IEnumerable<T> GetByPageUnite(SearchFilter filter, out long total)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.GetByPageUnite<T>(filter.pageIndex, filter.pageSize, out total, filter.returnFields, filter.where, filter.param, filter.orderBy, filter.transaction, filter.commandTimeout);
             }
@@ -106,7 +106,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public IEnumerable<T> GetAll(string returnFields = null, string orderby = null)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.GetAll<T>(returnFields, orderby);
             }
@@ -116,7 +116,7 @@ namespace FineAdmin.Repository
         /// </summary>
         public IEnumerable<T> GetByWhere(string where = null, object param = null, string returnFields = null, string orderby = null)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 return conn.GetByWhere<T>(where, param, returnFields, orderby);
             }

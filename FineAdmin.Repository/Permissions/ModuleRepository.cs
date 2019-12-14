@@ -19,7 +19,7 @@ namespace FineAdmin.Repository
         /// <returns></returns>
         public IEnumerable<ModuleModel> GetModuleListByRoleId(string sql, int roleId)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 sql += @" WHERE 1=1
                         and a.RoleId = @RoleId

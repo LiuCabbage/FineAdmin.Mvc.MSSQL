@@ -19,7 +19,7 @@ namespace FineAdmin.Repository
         /// <returns></returns>
         public UserModel LoginOn(string username, string password)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 var sql = "Select * from User where 1=1";
                 if (!string.IsNullOrEmpty(username))
@@ -41,7 +41,7 @@ namespace FineAdmin.Repository
         /// <returns></returns>
         public int ModifyUserPwd(ModifyPwd model, int userId)
         {
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 var sql = "UPDATE user SET UserPassword=@UserPassword WHERE Id=@Id AND Account=@Account AND UserPassword=@OldPassword";
                 return conn.Execute(sql, new { UserPassword = model.Password, Id = userId, Account = model.UserName, OldPassword = model.OldPassword });

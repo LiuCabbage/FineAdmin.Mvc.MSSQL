@@ -13,8 +13,6 @@ namespace FineAdmin.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        public IDonationService DonationService { get; set; }
-
         public override ActionResult Index(int? id)
         {
             ViewBag.Account = Operator == null ? "" : Operator.Account;
@@ -24,9 +22,7 @@ namespace FineAdmin.Web.Controllers
 
         public ActionResult Main()
         {
-            DonationModel donationModel = DonationService.GetConsoleNumShow();
-            ViewBag.DonationTop = DonationService.GetSumPriceTop(5).ToList();
-            return View(donationModel);
+            return View();
         }
 
         public JsonResult ExportFile()

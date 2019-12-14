@@ -23,7 +23,7 @@ namespace FineAdmin.Repository
         public int SavePremission(IEnumerable<RoleAuthorizeModel> entitys, int roleId)
         {
             int result = 0;
-            using (var conn = MySqlHelper.GetConnection())
+            using (var conn = SqlHelper.SqlConnection())
             {
                 IDbTransaction transaction = conn.BeginTransaction();
                 try
