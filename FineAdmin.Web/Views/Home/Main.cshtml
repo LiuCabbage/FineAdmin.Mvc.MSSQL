@@ -1,0 +1,186 @@
+﻿@using FineAdmin.Model;
+@model FineAdmin.Model.DonationModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>FineAdmin-登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript" src="~/Content/lib/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="~/Content/lib/echarts/echarts.themez.js"></script>
+    <link rel="stylesheet" href="~/Content/css/oksub.css" media="all" />
+</head>
+<body class="console console1 ok-body-scroll">
+    <div class="ok-body home">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-xs6 layui-col-md3">
+                <div class="ok-card layui-card">
+                    <div class="ok-card-body p0 clearfix cart-data">
+                        <div class="data-body">
+                            <div class="media-cont">
+                                <p class="tit">捐赠总金额</p>
+                                <h5 class="num">@Model.TotalPrice</h5>
+                            </div>
+                            <div class="w-img" ok-pc-in-show>
+                                <img src="~/Content/images/home-01.png" alt="收入" />
+                            </div>
+                        </div>
+                        <div id="echIncome" class="line-home-a"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-xs6 layui-col-md3">
+                <div class="ok-card layui-card">
+                    <div class="ok-card-body p0 clearfix cart-data">
+                        <div class="data-body">
+                            <div class="media-cont">
+                                <p class="tit">捐赠总次数</p>
+                                <h5 class="num">@Model.TotalNum</h5>
+                            </div>
+                            <div class="w-img" ok-pc-in-show>
+                                <img src="~/Content/images/home-02.png" alt="商品" />
+                            </div>
+                        </div>
+                        <div id="echGoods" class="line-home-a"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-xs6 layui-col-md3">
+                <div class="ok-card layui-card">
+                    <div class="ok-card-body p0 clearfix cart-data">
+                        <div class="data-body">
+                            <div class="media-cont">
+                                <p class="tit">单笔最大金额</p>
+                                <h5 class="num">@Model.MaxPrice</h5>
+                            </div>
+                            <div class="w-img" ok-pc-in-show>
+                                <img src="~/Content/images/home-03.png" alt="博客" />
+                            </div>
+                        </div>
+                        <div id="echBlogs" class="line-home-a"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-xs6 layui-col-md3">
+                <div class="ok-card layui-card">
+                    <div class="ok-card-body p0 clearfix cart-data">
+                        <div class="data-body">
+                            <div class="media-cont">
+                                <p class="tit">捐赠人数</p>
+                                <h5 class="num">@Model.PeopleNum</h5>
+                            </div>
+                            <div class="w-img" ok-pc-in-show>
+                                <img src="~/Content/images/home-04.png" alt="用户" />
+                            </div>
+                        </div>
+                        <div id="echUser" class="line-home-a"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md10">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        <div class="ok-card-title">捐赠记录</div>
+                    </div>
+                    <div class="ok-card-body map-body">
+                        <table class="layui-hide" id="tableId" lay-filter="tableFilter"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        <div class="ok-card-title">捐赠排行榜Top5</div>
+                    </div>
+                    <div class="ok-card-body map-body">
+                        @foreach (DonationModel item in ViewBag.DonationTop)
+                        {
+                            <div class="progress-box ">
+                                <div class="pro-data">
+                                    <h4 class="por-title">@item.Name</h4>
+                                    <div class="por-txt pro-a">总金额：@item.Price</div>
+                                    <div class="layui-progress" lay-filter="pro-a">
+                                        <div class="layui-progress-bar per-bg-a" lay-percent="-3%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="layui-row layui-col-space15">
+                <div class="layui-col-md8">
+                    <div class="layui-card">
+                        <div class="layui-card-header">
+                            <div class="ok-card-title">今日用户活跃量</div>
+                        </div>
+                        <div class="ok-card-body map-body">
+                            <div style="height: 100%;" id="userActiveTodayChart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="layui-card">
+                        <div class="layui-card-header">
+                            <div class="ok-card-title">今日用户访问来源</div>
+                        </div>
+                        <div class="ok-card-body map-body">
+                            <div style="height: 100%;" id="userSourceTodayChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">
+                            <div class="ok-card-title">本周用户访问来源</div>
+                        </div>
+                        <div class="ok-card-body clearfix">
+                            <div class="map-china" id="userSourceWeekChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+    <script type="text/javascript" src="~/Content/lib/layui/layui.js"></script>
+    <script type="text/javascript" src="~/Content/js/console1.js"></script>
+    <script src="~/Content/js/global.js"></script>
+    <script>
+    layui.use(["table"], function () {
+        let table = layui.table;
+
+        let AllTable = table.render({
+            elem: "#tableId",
+            url: "/Donation/Donation/List",
+            limit: 10,
+            page: true,
+            size: "sm",
+            height: "320",
+            cols: [[
+                { field: "Id", title: "ID", width: 80, sort: true },
+                { field: "Name", title: "捐赠人" },
+                { field: "Price", title: "捐赠金额" },
+                { field: "Source", title: "捐赠方式"},
+                { field: "Detail", title: "备注"},
+                { field: "CreateTime", title: "创建时间", width: 150, templet: '<span>{{showDate(d.CreateTime)}}<span>' }
+            ]],
+            done: function (res, curr, count) {
+                console.log(res, curr, count);
+            }
+        });
+    })
+    </script>
+</body>
+</html>
