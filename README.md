@@ -1,37 +1,49 @@
-# FineAdmin.Mvc.MSSQL
+# FineAdmin.Mvc MSSQL 版本
 
 #### 介绍
-FineAdmin.Mvc MSSQL 版本 先立个小目标，建它一个空仓库
+使用ok-admin+ASP.NET MVC搭建的通用权限后台管理系统<br>
+RightControl后台layui模板不太好看，换成[ok-admin v2.0](https://gitee.com/bobi1234/ok-admin)重写一遍。<br>
+项目地址：[http://fineadmin.baocaige.top](http://fineadmin.baocaige.top)
+
+#### 技术选型
+MVC5 Mysql Dapper DapperExtensions Autofac
 
 #### 软件架构
-软件架构说明
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1205/104041_92d6d97f_1130037.jpeg "1.jpg")
 
+#### 菜单结构
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- 系统管理
+1. 机构管理
+2. 字典分类
+3. 数据字典
+4. 用户管理
+5. 角色管理
+6. 系统菜单
+7. 按钮管理
+- 系统安全
+1. 登录日志
+- 系统设置
+1. 网站设置
+2. 开发设置
+3. 邮件设置
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1. 先创建数据库，然后执行database目录下面的FineAdmin.sql即可。
+2. 账号：admin
+3. 密码：123456
 
-#### 参与贡献
+#### 特别感谢
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+1. [Layui](https://www.layui.com)
+2. [ok-admin](https://gitee.com/bobi1234/ok-admin)
 
+#### 开源协议
 
-#### 码云特技
+[GPL-3.0](https://gitee.com/Liu_Cabbage/FineAdmin.Mvc/blob/master/LICENSE)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### 项目截图
+
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1204/175220_f5be0b2b_1130037.jpeg "1.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1204/173800_fe49801d_1130037.png "2.png")
