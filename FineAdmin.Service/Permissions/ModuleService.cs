@@ -70,8 +70,7 @@ namespace FineAdmin.Service
         /// <returns></returns>
         private IEnumerable<ModuleModel> GetModuleListByRoleId(int roleId)
         {
-            string sql = @"SELECT b.* FROM roleauthorize a
-                           INNER JOIN module b ON a.ModuleId = b.Id";
+            string sql = @"SELECT m.* FROM Module m";
             var list = ModuleRepository.GetModuleListByRoleId(sql, roleId);
             return list;
         }

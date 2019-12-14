@@ -21,10 +21,12 @@ namespace FineAdmin.Repository
         {
             using (var conn = SqlHelper.SqlConnection())
             {
-                sql += @" WHERE 1=1
-                        and a.RoleId = @RoleId
-                        GROUP BY a.ModuleId
-                        ORDER BY b.SortCode ASC";
+                sql += @" WHERE id in(SELECT a.ModuleId FROM roleauthorize a
+                        INNER JOIN module b ON a.ModuleId = b.Id
+                        WHERE 1=1
+                        and a.RoleId = 1
+                        GROUP BY a.ModuleId)
+                        ORDER BY m.SortCode ASC";
                 return conn.Query<ModuleModel>(sql, new { RoleId = roleId });
             }
         }

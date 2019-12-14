@@ -21,7 +21,7 @@ namespace FineAdmin.Repository
         {
             using (var conn = SqlHelper.SqlConnection())
             {
-                var sql = "Select * from User where 1=1";
+                var sql = "Select * from [User] where 1=1";
                 if (!string.IsNullOrEmpty(username))
                 {
                     sql += " and Account=@Account";
