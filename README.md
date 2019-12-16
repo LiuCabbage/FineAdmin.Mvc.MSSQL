@@ -46,4 +46,4 @@ MVC5 Mysql Dapper DapperExtensions Autofac
 #### 项目截图
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/1204/175220_f5be0b2b_1130037.jpeg "1.jpg")
-![输入图片说明](https://images.gitee.com/uploads/images/2019/1204/173800_fe49801d_1130037.png "2.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1216/145728_2647a47e_1130037.png "2.png")
