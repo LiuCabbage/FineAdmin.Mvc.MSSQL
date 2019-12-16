@@ -1,4 +1,4 @@
-﻿using DapperExtensions.MySQLExt;
+﻿using DapperExtensions.SqlServerExt;
 using FineAdmin.IRepository;
 using FineAdmin.Model;
 using System;
@@ -83,7 +83,7 @@ namespace FineAdmin.Repository
         /// <summary>
         /// 获取分页数据
         /// </summary>
-        public IEnumerable<T> GetByPage(SearchFilter filter, out long total)
+        public IEnumerable<T> GetByPage(SearchFilter filter, out int total)
         {
             using (var conn = SqlHelper.SqlConnection())
             {
@@ -93,11 +93,11 @@ namespace FineAdmin.Repository
         /// <summary>
         /// 获取分页数据 联合查询
         /// </summary>
-        public IEnumerable<T> GetByPageUnite(SearchFilter filter, out long total)
+        public IEnumerable<T> GetByPageUnite(SearchFilter filter, out int total)
         {
             using (var conn = SqlHelper.SqlConnection())
             {
-                return conn.GetByPageUnite<T>(filter.pageIndex, filter.pageSize, out total, filter.returnFields, filter.where, filter.param, filter.orderBy, filter.transaction, filter.commandTimeout);
+                return conn.GetByPageUnite<T>(filter.prefix, filter.pageIndex, filter.pageSize, out total, filter.returnFields, filter.where, filter.param, filter.orderBy, filter.transaction, filter.commandTimeout);
             }
         }
         /// <summary>

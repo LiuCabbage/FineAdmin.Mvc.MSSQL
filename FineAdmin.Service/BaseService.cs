@@ -73,7 +73,7 @@ namespace FineAdmin.Service
             {
                 _orderBy = " ORDER BY CreateTime desc";
             }
-            long total = 0;
+            int total = 0;
             var list = BaseRepository.GetByPage(new SearchFilter { pageIndex = pageInfo.page, pageSize = pageInfo.limit, returnFields = pageInfo.returnFields, param = filter, where = where, orderBy = _orderBy }, out total);
             return Pager.Paging(list, total);
         }
@@ -91,8 +91,8 @@ namespace FineAdmin.Service
             {
                 _orderBy = " ORDER BY CreateTime desc";
             }
-            long total = 0;
-            var list = BaseRepository.GetByPageUnite(new SearchFilter { pageIndex = pageInfo.page, pageSize = pageInfo.limit, returnFields = pageInfo.returnFields, param = filter, where = where, orderBy = _orderBy }, out total);
+            int total = 0;
+            var list = BaseRepository.GetByPageUnite(new SearchFilter { prefix = pageInfo.prefix, pageIndex = pageInfo.page, pageSize = pageInfo.limit, returnFields = pageInfo.returnFields, param = filter, where = where, orderBy = _orderBy }, out total);
             return Pager.Paging(list, total);
         }
         /// <summary>

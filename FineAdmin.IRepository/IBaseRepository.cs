@@ -39,11 +39,11 @@ namespace FineAdmin.IRepository
         /// <summary>
         /// 获取分页数据
         /// </summary>
-        IEnumerable<T> GetByPage(SearchFilter filter, out long total);
+        IEnumerable<T> GetByPage(SearchFilter filter, out int total);
         /// <summary>
         /// 获取分页数据 联合查询
         /// </summary>
-        IEnumerable<T> GetByPageUnite(SearchFilter filter, out long total);
+        IEnumerable<T> GetByPageUnite(SearchFilter filter, out int total);
         /// <summary>
         /// 返回整张表数据
         /// returnFields需要返回的列，用逗号隔开。默认null，返回所有列
