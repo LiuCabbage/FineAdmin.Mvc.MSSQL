@@ -43,7 +43,7 @@ namespace FineAdmin.Repository
         {
             using (var conn = SqlHelper.SqlConnection())
             {
-                var sql = "UPDATE user SET UserPassword=@UserPassword WHERE Id=@Id AND Account=@Account AND UserPassword=@OldPassword";
+                var sql = "UPDATE [user] SET UserPassword=@UserPassword WHERE Id=@Id AND Account=@Account AND UserPassword=@OldPassword";
                 return conn.Execute(sql, new { UserPassword = model.Password, Id = userId, Account = model.UserName, OldPassword = model.OldPassword });
             }
         }
