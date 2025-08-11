@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -128,7 +128,7 @@ namespace FineAdmin.Service
         public IEnumerable<ModuleModel> GetModuleButtonList(int roleId)
         {
             string returnFields = "Id,ParentId,FullName,Icon,SortCode";
-            string orderby = "ORDER BY SortCode ASC";
+            string orderby = "ORDER BY ParentId,SortCode ASC";
             IEnumerable<ModuleModel> list = GetAll(returnFields, orderby);
             foreach (var item in list)
             {
